@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 
+
 # Virtual environment
 my_venv/
 

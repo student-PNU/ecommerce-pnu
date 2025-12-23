@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if phone_number_form %}
+    <form action="{% url 'accounts:register_step1' %}" method="get">
+        {% csrf_token %}
+        {{phone_number_form.as_p}}
+        <input type="submit" value="check">
+    </form>
+{% endif %}
+
+{% if phone_number and OtpCode_form%}
+    <form action="{% url 'accounts:register_step1' %}" method="post">
+        {% csrf_token %}
+        <div>برای «  {{phone_number}}  » یک کد تایید فرستاده شده است</div>
+        <div><a href="{% url 'accounts:register_step1' %}">تغییر شماره همراه</a></div>
+        {{OtpCode_form}}
+        <input type="submit" value="ارسال کد">
+        
+    </form>
+{% endif %}
+
+
+{% endblock content %}

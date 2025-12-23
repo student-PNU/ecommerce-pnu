@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if form %}
+<form action="{% url 'accounts:Login'%}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="ورود">
+    
+    <p><a href="{% url 'accounts:register_step1' %}">ساخت حساب کاربری</a></p>
+</form>
+{% endif %}
+
+{% endblock content %}
